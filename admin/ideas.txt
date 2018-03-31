@@ -1,0 +1,13 @@
+
+this is a clever way of actively assigning a class depending on the outcome of a situation.
+in this case if there is an error(cell is empty) it automatically assigns the has-error class to the div.
+
+<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+
+
+//        echo"<pre>";
+//        print_r($user);
+//        echo"</pre>";
+//        die;
+
+fdfgf
