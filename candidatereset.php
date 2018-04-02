@@ -26,39 +26,35 @@ else {
 }
 ?>
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Reset Your Password</title>
-  <?php include 'css/css.html'; ?>
+    <meta charset="UTF-8">
+    <title>Reset Your Password</title>
+    <?php include 'css/css.html'; ?>
 </head>
 
 <body>
-    <div class="form">
-          <h1>Choose Your New Password</h1>
-          
-          <form action="candidateresetpassword.php" method="post">
-              
-          <div>
-            <label>
-              New Password<span>*</span>
-            </label>
-            <input type="password"required name="newpassword" autocomplete="off"/>
-          </div>
-              
-          <div>
-            <label>
-              Confirm New Password<span>*</span>
-            </label>
-            <input type="password"required name="confirmpassword" autocomplete="off"/>
-          </div>
-          
-          <!-- This input field is needed, to get the email of the user -->
-          <input type="hidden" name="email" value="<?= $email ?>">    
-          <input type="hidden" name="hash" value="<?= $hash ?>">    
-              
-          <button>Apply</button>
-          </form>
+    <h1>Choose Your New Password</h1>
+    <div class="login">
+        <form action="candidateresetpassword.php" method="post">
+            <div>
+                <label>New Password<span>*</span></label>
+                <input type="password" required name="newpassword" autocomplete="off" />
+            </div>
+
+            <div>
+                <label>Confirm New Password<span>*</span></label>
+                <input type="password" required name="confirmpassword" autocomplete="off" />
+            </div>
+
+            <!-- This input field is needed, to get the email of the user -->
+            <input type="hidden" name="email" value="<?= $email ?>">
+            <input type="hidden" name="hash" value="<?= $hash ?>">
+            <div class="actions">
+              <input type="submit" name="apply" value="Apply"></input>
+            </div>
+        </form>
     </div>
 </body>
 </html>

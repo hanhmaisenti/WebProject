@@ -31,55 +31,44 @@ if ($_SESSION['logged_in'] != 1) {
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome</title>
-  <?php include 'css/css.html';?>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <?php include 'css/css.html';?>
 </head>
 <body>
-  <div class="form">
-    <h1>Welcome</h1>
-    
-    <p><?php
+    <h1>Welcome! This is the Hanh Maisenti Interview Candidate Portal</h1>
+    <div><?php
       // Display any persistent messages only once.
       if (isset($_SESSION['message'])) {
         echo $_SESSION['message'];
         // Don't annoy the user with more messages upon page refresh
         unset($_SESSION['message']);
       }
-    ?></p>
+    ?></div>
     <?php
           // Keep reminding the user this account is not active, until they activate
           if ( !$active ){
               echo
-              '<div class="info">
+              '<div class="login">
               Account is unverified, please confirm your email by clicking
               on the email link!
               </div>';
           }
     ?>
-    
-    <h2><?php echo $first_name.' '.$last_name; ?></h2>
-    <p><?= $email ?></p>
-
-    <div class="wrapper">
-      <h2>Interview Candidate portal</h2>
+    <div class="login">
+        <h1><?php echo "Name:".$first_name.'<br>Familyname:'.$last_name."<br>Email:".$email?></h1>
+        <div>
+            <h1>Hi,
+                <b>
+                    <?php echo htmlspecialchars($_SESSION['email']); ?>
+                </b>. Welcome to the candidate portal</h1>
+        </div>
     </div>
-    <div>
-      <h1>Hi, <b><?php echo htmlspecialchars($_SESSION['email']); ?></b>. Welcome to the candidate portal</h1>
-    </div>
-
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<!--
-      <div>
-        <input type="submit" name="showadmins" value="Display Admins">
-      </div>
-      <div>
-        <input type="submit" name="addadmin" value="Add Admins">
-      </div>
--->
-      <p><a href="candidatelogout.php">Sign Out of Your Account</a></p>
+    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+        <p>
+            <a href="candidatelogout.php">Sign Out of Your Account</a>
+        </p>
     </form>
-
-  </div>
 </body>
+
 </html>

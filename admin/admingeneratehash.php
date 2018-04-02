@@ -25,22 +25,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <body>
-    <div class="wrapper">
-        <h2>Hash Generator</h2>
-        <p>Please enter the password you want to hash</p>
+    <h1>Hash Generator<br>Please enter the password you want to hash</h1>
 
-        <form method="post">
-            <div>
-                <label>Password</label>
-                <input type="text" name="password" class="form-control">
-            </div>
-            <div>
-                <button type="submit" name="hashsubmit">Submit</button>
-            </div>
+    <form class="login" method="post">
+        <div>
+            <label>Password</label>
+            <input type="text" name="password" class="form-control">
+        </div>
+        <div>
+            <button type="submit" name="hashsubmit">Submit</button>
+        </div>
 
-			<textarea id='myText' rows="10" cols="120"><?php echo $y; ?></textarea>
-        </form>
-        <a href="./index.php">Go Back</a>
-    </div>    
+        <textarea id='myText' rows="10" cols="120"><?php echo $y; ?></textarea>
+    </form>
+    <a href="./index.php">Go Back</a>
+   
 </body>
 </html>

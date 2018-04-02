@@ -48,12 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </form>
     <div class="footer">Please fill in your credentials to login to the Admin Portal</div>
-
+    <br><br><br><br>
     <!--Separate tool for generating the Hash for first time Admins!-->
+    
+    <h1>Other Tools</h1>
     <form class="login" action="index.php" method="post" accept-charset="utf-8">
         <div class="actions">
-            <input type="submit" name="hashtool">Generate Hash Tool</input>
-            <input type="submit" name="emailtest">Send Test Email</input>
+            <input type="submit" name="hashtool" value="Generate Hash Tool"></input>
+            <input type="submit" name="emailtest" value="Send Test Email"></input>
         </div>
     </form>
     <div class="footer"></div><a href="../index.php">link to candidate site</a></div>

@@ -37,7 +37,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
         Please click this link to reset your password:
 
-        http://localhost/HanhMaisenti/candidatereset.php?email='.$email.'&hash='.$hash;  
+        http://localhost/WebProject/candidatereset.php?email='.$email.'&hash='.$hash;  
 
         mail($to, $subject, $message_body, $headers);
 
@@ -54,20 +54,16 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 <body>
     
-  <div class="form">
-
-    <h1>Reset Your Password</h1>
-
-    <form action="candidateforgot.php" method="post">
-     <div>
-      <label>
-        Email Address<span>*</span>
-      </label>
-      <input type="email"required autocomplete="off" name="email"/>
+  <h1>Reset Your Password</h1>
+  <form class="login" action="candidateforgot.php" method="post">
+    <div>
+      <label>Email Address<span>*</span></label>
+      <input type="email" required autocomplete="off" name="email"/>
     </div>
-    <button>Reset</button>
-    </form>
-  </div>
+    <div class="actions">
+      <input type="submit" name="reset" value="Reset Password"></input>
+    </div>
+  </form>
 </body>
 
 </html>

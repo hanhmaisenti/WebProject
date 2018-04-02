@@ -5,11 +5,11 @@ require 'candidatedb.php';
  session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>candidate Login</title>
-    <?php include ('css/css.html');?>
+    <?php include 'css/css.html';?>
 </head>
 
 <?php

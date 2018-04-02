@@ -42,9 +42,7 @@ if(empty($email_err) && empty($password_err)){
             $_SESSION['logged_in'] = true;
 
             //we need to check if the account has actually been activated.
-
             header("location: candidatefunctions.php");
-
         }
         else {
             $_SESSION['message'] = "You have entered wrong password, try again!";

@@ -30,11 +30,12 @@ if ($_SESSION['logged_in'] != 1) {
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Welcome</title>
+  <title>Admin Functions Welcome</title>
   <?php include '../css/css.html';?>
 </head>
 <body>
-  <div class="form">
+<h1>Interview Candidate Administration portal</h1>  
+<div class="login">
     <p><?php
       // Display any persistent messages only once.
       if (isset($_SESSION['message'])) {
@@ -44,9 +45,6 @@ if ($_SESSION['logged_in'] != 1) {
       }
     ?>
 
-    <div class="wrapper">
-      <h2>Interview Candidate Administration portal</h2>
-    </div>
     <div>
       <h1>Hi, <b><?php echo htmlspecialchars($_SESSION['email']); ?></b>. Welcome to the Admin portal</h1>
     </div>

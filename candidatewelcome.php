@@ -8,13 +8,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 ?>
- 
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>   
-    <?php include ('css/css.html');?>
+  <title>Welcome/title>
+  <?php include 'css/css.html'; ?>
 </head>
 <body>
     <div>
