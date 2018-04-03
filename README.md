@@ -66,3 +66,11 @@ auth_password=the passsord google gave you.
 ```
 To generate a password please look here:
 https://security.google.com/settings/security/apppasswords
+
+## Links to your code on Windows
+Github desktop maintains your code in a directory something like this: C:\Users\<<yourName>>\Documents\GitHub
+To get all active changes to your webserver (like WAMPstack or MAMP etc) its useful to create symbolic links to your Git Code repositories within the htdocs directory of your webserver so changes you make will immediately be seen on the website.
+to do this, you can research symbolic links on windows, or install [Link Shell Extension]http://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
+
+Then, go to your source directory (C:\Users\<<yourName>>\Documents\GitHub\whateveryyourprojectiscalled), right click and select "Pick Link Source"
+Next, navigate to your C:\Bitnami\wampstack-7.1.15-0\apache2\htdocs directory, right click, and Drop as..Junction
