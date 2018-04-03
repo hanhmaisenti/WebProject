@@ -54,6 +54,7 @@ the actual delivery of the messages.
     unix application is installed.
 
 (3) configure smtp server and default domain in sendmail.ini
+```
 smtp_server=smtp.gmail.com
 smtp_port=465
 smtp_ssl=ssl
@@ -61,5 +62,7 @@ default_domain=localhost
 error_logfile=error.log
 debug_logfile=debug.log
 auth_username=youremailaddress@gmail.com
-auth_password=the passsord google gave you. To generate a password please look here:
+auth_password=the passsord google gave you.
+```
+To generate a password please look here:
 https://security.google.com/settings/security/apppasswords
