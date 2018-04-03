@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!--Separate tool for generating the Hash for first time Admins!-->
     
     <h1>Other Tools</h1>
-    <form class="login" action="index.php" method="post" accept-charset="utf-8">
+    <form class="formfunctions" action="index.php" method="post" accept-charset="utf-8">
         <div class="actions">
             <input type="submit" name="hashtool" value="Generate Hash Tool"></input>
             <input type="submit" name="emailtest" value="Send Test Email"></input>

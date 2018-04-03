@@ -89,12 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     }?>    
 
-    <div class="wrapper">
-        <h2>Add Admin</h2>
-    </div>
-    
+    <h1>Add Admin</h1>
     <!--this posts back to itself at correct server location -->
-    <form action="adminadd.php" method="post">
+    <form class="login" action="adminadd.php" method="post">
         <div>
             <label>Email</label>
             <input type="email" name="email" value="<?php echo $email; ?>">
@@ -110,11 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" name="confirm_password" value="<?php echo $confirm_password; ?>">
             <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
         </div>            
-        <div>
-            <input type="submit" value="Submit">
-        </div>
-        <p><a href="adminfunctions.php">Go Back</a></p>
+        <div class="actions"><input type="submit" value="Submit"></div>
     </form>
+    <div class="footer"><a href="adminfunctions.php">Go Back</a></div>
 </body>
 </body>
 </html>

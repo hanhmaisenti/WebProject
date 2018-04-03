@@ -30,15 +30,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <form class="login" method="post">
         <div>
             <label>Password</label>
-            <input type="text" name="password" class="form-control">
+            <input type="text" name="password">
+        </div>
+        <div class="actions">
+            <input type="submit" name="hashsubmit" value="Submit">
         </div>
         <div>
-            <button type="submit" name="hashsubmit">Submit</button>
+            <label>Results</label>
+            <textarea id='myText' rows="10"><?php echo $y; ?></textarea>
         </div>
-
-        <textarea id='myText' rows="10" cols="120"><?php echo $y; ?></textarea>
     </form>
     <a href="./index.php">Go Back</a>
-   
 </body>
 </html>
+

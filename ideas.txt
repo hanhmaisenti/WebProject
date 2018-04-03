@@ -4,10 +4,11 @@ in this case if there is an error(cell is empty) it automatically assigns the ha
 
 <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
 
-
+# debug
 //        echo"<pre>";
 //        print_r($user);
 //        echo"</pre>";
 //        die;
 
-fdfgf
+# debug2
+var_dump()

@@ -35,37 +35,35 @@ if ($_SESSION['logged_in'] != 1) {
 </head>
 <body>
 <h1>Interview Candidate Administration portal</h1>  
-<div class="login">
-    <p><?php
-      // Display any persistent messages only once.
-      if (isset($_SESSION['message'])) {
-        echo $_SESSION['message'];
-        // Don't annoy the user with more messages upon page refresh
-        unset($_SESSION['message']);
-      }
-    ?>
+<div class="formfunctions">
+  <p><?php
+  // Display any persistent messages only once.
+  if (isset($_SESSION['message'])) {
+  echo $_SESSION['message'];
+  // Don't annoy the user with more messages upon page refresh
+  unset($_SESSION['message']);
+  }
+  ?>
 
-    <div>
-      <h1>Hi, <b><?php echo htmlspecialchars($_SESSION['email']); ?></b>. Welcome to the Admin portal</h1>
-    </div>
-
-    <form action="adminfunctions.php" method="post">
-      <div>
-        <input type="submit" name="showadmins" value="Display Admins">
-      </div>
-      <div>
-        <input type="submit" name="addadmin" value="Add Admins">
-      </div>
-      <div>
-        <input type="submit" name="addtesters" value="Add Testers">
-      </div>
-      <div>
-        <input type="submit" name="readtesters" value="Display Testers">
-      </div>
-
-      <p><a href="adminlogout.php">Sign Out of Your Account</a></p>
-    </form>
-
+  <div>
+    <h1>Hi, <b><?php echo htmlspecialchars($_SESSION['email']); ?></b>. Welcome to the Admin portal</h1>
   </div>
+
+  <form class="formfunctions" action="adminfunctions.php" method="post">
+    <div class="actions">
+      <input type="submit" name="showadmins" value="Display Admins">
+    </div>
+    <div class="actions">
+      <input type="submit" name="addadmin" value="Add Admins">
+    </div>
+    <div class="actions">
+      <input type="submit" name="addtesters" value="Add Testers">
+    </div>
+    <div class="actions">
+      <input type="submit" name="readtesters" value="Display Testers">
+    </div>
+  </form>
+  <div class="footer"><a href="adminlogout.php">Sign Out of Your Account</a></div>
+</div>
 </body>
 </html>

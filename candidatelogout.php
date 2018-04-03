@@ -17,10 +17,10 @@ session_destroy();
 
 <body>
   <h1>Thanks for stopping by</h1>
-    <div class="login">
+    <div class="formfunctions">
         <p><?= 'You have been logged out!'; ?></p>
-        <a href="index.php">Home</button></a>
     </div>
+    <div class="footer"><a href="index.php">Home</button></a></div>
 </body>
 
 </html>

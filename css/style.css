@@ -1,26 +1,3 @@
-#users {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#users td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#users tr:nth-child(even){background-color: #f2f2f2;}
-
-#users tr:hover {background-color: #ddd;}
-
-#users th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-}
-
 /* Table */
 .data-table {
     border-collapse: collapse;
@@ -69,6 +46,7 @@
   h1,
   .login,
   .error,
+  .formfunctions,
   .footer{
     width:80%;
     margin: 0 auto;
@@ -84,7 +62,7 @@
       flex-direction: column;
     }
   
-    h1, .login, .error, .footer {
+    h1, .login, .error, .formfunctions, .footer {
       margin: 0;
       width: 80%;
     }
@@ -101,8 +79,7 @@
       body {
         grid-template-columns: repeat(2, minmax(150px, 30%));
       }
-      h1,
-      .login, .error, .footer {
+      h1, .login, .error, .formfunctions, .footer {
         grid-column-end: span 2;
         width: auto;
       }
@@ -111,7 +88,32 @@
         grid-template-columns: 1fr 2fr;
         align-items: center;
       }
+      .error > div {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+      }
+      .formfunctions > div {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+      }
+      .footer > div {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+      }
+
       .login > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .error > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .formfunctions > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .footer > div.actions {
         grid-template-columns: 1fr 1fr 1fr;
       }
 
@@ -133,7 +135,7 @@
     line-height: 1.4;
   }
   
-  .login, .error {
+  .login, .formfunctions, .error {
     background-color: rgba(191, 216, 227, .4);
     border: 1px solid rgba(191, 216, 227, .8);
     border-bottom-right-radius: 5px;
@@ -145,7 +147,13 @@
   .login > div {
     padding: 5px 0;
   }
-  
+  .formfunctions > div {
+    padding: 5px 0;
+  }
+  .error > div {
+    padding: 5px 0;
+  }
+
   /*this is the SUBMIT BUTTON FORMATTING*/
   input[type="submit"] {
     border: 1px solid rgba(191, 216, 227, .8);

@@ -31,11 +31,6 @@ if(empty($email_err) && empty($password_err)){
         // User exists
         $user = $result->fetch_assoc();
 
-//        echo"<pre>";
-//        print_r($user);
-//        echo"</pre>";
-//        die;
-
         if ( password_verify($_POST['password'], $user['password']) ) {
 
             //remember is value. It will be used in the next sessions
