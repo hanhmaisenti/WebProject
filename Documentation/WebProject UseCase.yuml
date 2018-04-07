@@ -1,0 +1,9 @@
+// {type:usecase}
+// {direction:leftToRight}
+[Administrator]^(Send Email Test Page)
+[Administrator]^(Landing Page)
+(Landing Page)^(dfdf)
+(Landing Page)^(dfffdfdf)
+(Landing Page)^(dfgffdf)
+(Landing Page)^(dfyyydf)
+

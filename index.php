@@ -23,7 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <h1>Hanh Maisentis Interview Portal<br>Candidate Login Page</h1>
-
+    <div><?php
+      // Display any persistent messages only once.
+      if (isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        // Don't annoy the user with more messages upon page refresh
+        unset($_SESSION['message']);
+      }
+    ?></div>
     <!--this posts back to itself at correct server location -->
     <form class="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div>

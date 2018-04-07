@@ -1,0 +1,27 @@
+// {type:usecase}
+// {direction:leftToRight}
+
+//Inheritance
+[Inheritance]^(dffdf)
+
+//include
+[Include]>(dffdf)
+
+//extend
+[extend]<(dffdf)
+
+//Note
+[Note]-(note - grgfgfdgfg)
+
+
+
+[Administrator]^(Send Email Test Page)
+[Administrator]^(Landing Page)
+(Landing Page)^(dfdf)
+(Landing Page)^(dfffdfdf)
+(Landing Page)^(dfgffdf)
+(Landing Page)^(dfyyydf)
+
+(Usecase)
+
+[Actor]

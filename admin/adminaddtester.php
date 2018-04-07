@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // Send registration confirmation link (verify.php)
                     $to      = $email;
                     $subject = 'Account Verification ( Interview Assesment Portal )';
+                    $headers = "from: francismiles1@gmail.com";
                     $message_body = '
                     Hello '.$fname.',
             
@@ -90,10 +91,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     http://localhost/WebProject/verify.php?email='.$email.'&hash='.$hash;  
             
                     mail( $to, $subject, $message_body );
-                    echo "<p>Success</p>";
-
-                    header("location: admindisplaytesters.php");
+                    
+                    if (mail($to, $subject, $message_body, $headers)) {
+                        echo "<p>Success</p>";
+                        header("location: admindisplaytesters.php");
+                    } else {
+                        $_SESSION['message'] = 'Sending Mail failed!';
+                        header("location: adminerror.php");
+                    }               
                 } else {
+                    //SQL INSERT didnt work
                     $_SESSION['message'] = 'Candidate Registration failed!';
                     header("location: adminerror.php");
                 }
@@ -121,10 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['message'] = "You must log in before using this tool!";
         header("location: adminerror.php");    
     }
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    }?>    
-
+    ?>    
 
     <h1>Add Admin</h1>
     <!--this posts back to itself at correct server location -->

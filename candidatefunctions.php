@@ -56,7 +56,7 @@ if ($_SESSION['logged_in'] != 1) {
         }
     ?>
 
-    <h1><?php echo "Name:".$first_name.'<br>Familyname:'.$last_name."<br>Email:".$email?></h1>
+    <h1><?php echo "Name:  ".$first_name.'<br>Familyname:  '.$last_name."<br>Email:  ".$email?></h1>
     <div class="formfunctions">
         <div>
             <h1>Hi,
