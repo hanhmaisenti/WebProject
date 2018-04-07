@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) { //user logging in
         //we use require as its essentially adds the php to this part
         require './adminlogin.php';
-        
     } elseif (isset($_POST['hashtool'])) {
         header("location: admingeneratehash.php");
     } elseif (isset($_POST['emailtest'])) {

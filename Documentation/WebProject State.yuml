@@ -1,0 +1,37 @@
+// {type:state}
+// {direction:leftToRight}
+(css.html)
+(admindb.php)
+(candidatedb.php)
+(start)[Start Admin]->(admin index.php)
+
+(admin index.php)->(admin sendmail_test.php)
+(admin index.php)[notLoggedIn]->(admin adminlogin.php|Validate Fields)
+(admin index.php)[AlreadyLoggedIn]->(adminfunctions.php)
+(admin index.php)->(admin admingeneratehash.php)
+
+(admin index.php)-(candidate index.php)
+
+//Error Conditions
+(adminfunctions.php)->(adminlogout.php)->(end)
+(admin adminlogin.php)->(adminfunctions.php)
+(adminfunctions.php)->(adminadd.php)
+(adminfunctions.php)->(admindisplay.php)
+(adminfunctions.php)->(admindaddtester.php)
+(adminfunctions.php)->(admindisplatesters.php)
+
+(adminfunctions.php)[error]->(adminerror.php)
+(admin adminlogin.php)[error]->(adminerror.php)->(admin index.php)
+(adminadd.php)[error]->(adminerror.php)
+(admindisplay.php)[error]->(adminerror.php)
+(admindaddtester.php)[error]->(adminerror.php)
+(admindisplatesters.php)[error]->(adminerror.php)
+
+(start)[Start Candidate]->(candidate index.php)
+(candidate index.php)[notLoggedIn]->(candidatelogin.php|Validate Fields)
+(candidatelogin.php)->(candidatefunctions.php|Verify Account activation)
+(candidate index.php)[AlreadyLoggedIn]->(candidatefunctions.php)
+(candidatefunctions.php)->(test functions{bg:yellowgreen})
+(candidate index.php)[forgot Password]->(candidateforgot.php|send reminder email)
+(candidateforgot.php)->(Verify.php)->(candidate index.php)
+(candidatefunctions.php)->(candidatelogout.php)->(end)

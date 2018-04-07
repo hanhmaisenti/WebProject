@@ -1,6 +1,8 @@
 // {type:usecase}
 // {direction:leftToRight}
 
+(note: some note!{bg:cornsilk})
+
 //Inheritance
 [Inheritance]^(dffdf)
 
@@ -25,3 +27,4 @@
 (Usecase)
 
 [Actor]
+
