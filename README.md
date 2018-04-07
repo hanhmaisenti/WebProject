@@ -1,4 +1,7 @@
 # WebProject Instructions
+Firstly, to read the Yuml diagrams, you need to install the YUML extension in Cisual Source code. Really good tool.
+Its easy to obtain the diagrams: You copy the Yuml code and paste it into the following website:
+https://yuml.me/diagram/scruffy/class/draw
 
 # mySql Setup
 To create the SQL database structure, simply copy the following text into PHPmyAdmin SQL part and run it
