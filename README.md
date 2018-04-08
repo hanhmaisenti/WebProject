@@ -1,5 +1,5 @@
 # WebProject Instructions
-Firstly, to read the Yuml diagrams, you need to install the YUML extension in Cisual Source code. Really good tool.
+Firstly, to read the Yuml diagrams, you need to install the YUML extension in Visual Source code. Really good tool.
 Its easy to obtain the diagrams: You copy the Yuml code and paste it into the following website:
 https://yuml.me/diagram/scruffy/class/draw
 
