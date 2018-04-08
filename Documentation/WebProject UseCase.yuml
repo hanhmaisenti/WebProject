@@ -1,5 +1,6 @@
 // {type:usecase}
 // {direction:leftToRight}
+// {generate:true}
 [Administrator]^(Send Email Test Page)
 [Administrator]^(Password Hash tool)
 [Administrator]^(Admin Landing Page)

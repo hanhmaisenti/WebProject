@@ -1,5 +1,6 @@
 // {type:state}
 // {direction:leftToRight}
+// {generate:true}
 (css.html)
 (admindb.php)
 (candidatedb.php)
@@ -21,11 +22,21 @@
 (adminfunctions.php)->(admindisplatesters.php)
 
 (adminfunctions.php)[error]->(adminerror.php)
-(admin adminlogin.php)[error]->(adminerror.php)->(admin index.php)
+(admin adminlogin.php)[error]->(adminerror.php)
 (adminadd.php)[error]->(adminerror.php)
 (admindisplay.php)[error]->(adminerror.php)
 (admindaddtester.php)[error]->(adminerror.php)
 (admindisplatesters.php)[error]->(adminerror.php)
+(adminerror.php)->(admin index.php)
+
+(candidatelogin.php)[error]->(candidateerror.php)
+(candidatefunctions.php)[error]->(candidateerror.php)
+(candidatefunctions.php)[error]->(candidateerror.php)
+(test functions)[error]->(candidateerror.php)
+(candidateforgot.php)[error]->(candidateerror.php)
+(Verify.php)[error]->(candidateerror.php)
+(candidatelogout.php)[error]->(candidateerror.php)
+(candidateerror.php)->(candidate index.php)
 
 (start)[Start Candidate]->(candidate index.php)
 (candidate index.php)[notLoggedIn]->(candidatelogin.php|Validate Fields)
