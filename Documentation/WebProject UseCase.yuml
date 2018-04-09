@@ -9,7 +9,10 @@
 (Admin Login)^(Add Administrator)
 (Admin Login)^(Display Administrators)
 (Admin Login)^(Add Candidate)
+(Add Candidate)^(Send Activation Email)
 (Admin Login)^(display Candidates)
+(Admin Login)^(Add Questions)
+(Admin Login)^(display Questions)
 (Admin Login)^(Admin Logout)
 (Admin Logout)^(Admin Landing Page)
 

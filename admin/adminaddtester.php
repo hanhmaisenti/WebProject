@@ -7,8 +7,8 @@ session_start();
 // Processing form data when form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
     // Define variables and initialize with empty values
-    $email = $fname = $lname = $password = $confirm_password ="";
-    $email_err = $fname_err = $lname_err = $password_err = $confirm_password_err = "";
+    $email = $fname = $lname = $qtype = $password = $confirm_password ="";
+    $email_err = $fname_err = $lname_err = $qtype_err = $password_err = $confirm_password_err = "";
 
     // Check if email is empty
     if(empty(trim($_POST["email"]))){
@@ -38,6 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $lname = trim($_POST['lname']); //Valid Last Name
             }
 
+            // Validate Question Group
+            if(empty(trim($_POST['questiontype']))){
+                $qtype_err = "Please enter a Question Type";     
+            } else {
+                $qtype = trim($_POST['questiontype']); //Valid Question Type
+            }
+            
             // Validate password
             if(empty(trim($_POST['password']))){
                 $password_err = "Please enter a password.";     
@@ -58,19 +65,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             //Now Validate credentials
-            if(empty($email_err) && empty($fname_err) && empty($lname_err) && empty($password_err)  && empty($confirm_password_err))
+            if(empty($email_err) && empty($fname_err) && empty($lname_err) && empty($qtype_err) && empty($password_err)  && empty($confirm_password_err))
             {
                 //Its really all good. Proceed to add the person
                 //must protect against sql injection
                 $email = $mysqli->escape_string($_POST['email']);
                 $fname = $mysqli->escape_string($_POST['fname']);
                 $lname = $mysqli->escape_string($_POST['lname']);
+                $qtype = $mysqli->escape_string($_POST['questiontype']);
                 $password = $mysqli->escape_string(password_hash(trim($_POST['password']), PASSWORD_BCRYPT));
                 //hash is there just incase we need to validate email addresses later
                 $hash = $mysqli->escape_string( md5( rand(0,1000) ) );
                 
-                $sql = "INSERT INTO candidate (email, first_name, last_name, password, hash) VALUES ('$email','$fname','$lname','$password','$hash')";
+                $sql = "INSERT INTO candidate (email, first_name, last_name, questiontype, password, hash) VALUES ('$email','$fname','$lname','$qtype','$password','$hash')";
                 if ( $mysqli->query($sql) ){
+                    
+                    //Ask if we need to generate an email or not
                     
                     //Now proceed to send the activation email to the candidate
                     $_SESSION['message'] =
@@ -147,7 +157,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>Last Name</label>
             <input type="text" name="lname" value="<?php echo $lname; ?>">
             <span><?php echo $lname_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>                      
+        </div>  
+        <div>
+            <label>Please select the type of question</label>
+            <select name="questiontype">
+                <option value="easy">Easy Question</option>
+                <option value="medium">Medium Question</option>
+                <option value="difficult">Difficult Question</option>
+            </select>
+            <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+        </div>                     
         <div>
             <label>Password</label>
             <input type="password" name="password" value="<?php echo $password; ?>">

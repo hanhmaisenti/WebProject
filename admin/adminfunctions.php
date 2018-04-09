@@ -21,7 +21,11 @@ if ($_SESSION['logged_in'] != 1) {
             header("location: adminaddtester.php");
         } else if ($_POST["readtesters"]) {
             header("location: admindisplaytesters.php");
-        }
+        } else if ($_POST["viewquestions"]) {
+          header("location: adminviewquestions.php");
+      } else if ($_POST["addquestions"]) {
+        header("location: adminaddquestions.php");
+    }
     }
 }
 ?>
@@ -61,6 +65,12 @@ if ($_SESSION['logged_in'] != 1) {
     </div>
     <div class="actions">
       <input type="submit" name="readtesters" value="Display Testers">
+    </div>
+    <div class="actions">
+      <input type="submit" name="viewquestions" value="View Questions">
+    </div>
+    <div class="actions">
+      <input type="submit" name="addquestions" value="Add Questions">
     </div>
   </form>
   <div class="footer"><a href="adminlogout.php">Sign Out of Your Account</a></div>

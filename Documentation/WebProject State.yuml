@@ -4,40 +4,44 @@
 (css.html)
 (admindb.php)
 (candidatedb.php)
-(start)[Start Admin]->(admin index.php)
 
+(start)[Start Admin]->(admin index.php)
 (admin index.php)->(admin sendmail_test.php)
 (admin index.php)[notLoggedIn]->(admin adminlogin.php|Validate Fields)
 (admin index.php)[AlreadyLoggedIn]->(adminfunctions.php)
 (admin index.php)->(admin admingeneratehash.php)
 
+//Admin States
 (admin index.php)-(candidate index.php)
-
-//Error Conditions
 (adminfunctions.php)->(adminlogout.php)->(end)
 (admin adminlogin.php)->(adminfunctions.php)
 (adminfunctions.php)->(adminadd.php)
 (adminfunctions.php)->(admindisplay.php)
-(adminfunctions.php)->(admindaddtester.php)
+(adminfunctions.php)->(admindaddtester.php|Generate Activation Email to user)
 (adminfunctions.php)->(admindisplatesters.php)
+(adminfunctions.php)->(adminaddquestions.php)
+(adminfunctions.php)->(adminviewquestions.php)
 
+//Error Conditions - ADMIN
 (adminfunctions.php)[error]->(adminerror.php)
 (admin adminlogin.php)[error]->(adminerror.php)
 (adminadd.php)[error]->(adminerror.php)
 (admindisplay.php)[error]->(adminerror.php)
 (admindaddtester.php)[error]->(adminerror.php)
 (admindisplatesters.php)[error]->(adminerror.php)
+(adminaddquestions.php)[error]->(adminerror.php)
+(adminviewquestions.php)[error]->(adminerror.php)
 (adminerror.php)->(admin index.php)
 
+//Error Conditions - CANDIDATE
 (candidatelogin.php)[error]->(candidateerror.php)
-(candidatefunctions.php)[error]->(candidateerror.php)
 (candidatefunctions.php)[error]->(candidateerror.php)
 (test functions)[error]->(candidateerror.php)
 (candidateforgot.php)[error]->(candidateerror.php)
 (Verify.php)[error]->(candidateerror.php)
-(candidatelogout.php)[error]->(candidateerror.php)
 (candidateerror.php)->(candidate index.php)
 
+//Candidate States
 (start)[Start Candidate]->(candidate index.php)
 (candidate index.php)[notLoggedIn]->(candidatelogin.php|Validate Fields)
 (candidatelogin.php)->(candidatefunctions.php|Verify Account activation)
