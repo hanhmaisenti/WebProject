@@ -1,8 +1,8 @@
 <?php
-    $to      = "hanh.maisenti@gmail.com";
+    $to      = "hanh.maisenti@outlook.com";
     $subject = "Password Reset Link ( Interview Portal )";
     $message_body = "blah blah";
-    $headers = "from: hanh.maisenti@gmail.com";
+    $headers = "from: hanh.maisenti@outlook.com";
     if (mail($to, $subject, $message_body,$headers)) {
         echo "WORKED!";
     } else {
