@@ -1,7 +1,7 @@
 <?php
 
 /* Displays user information and some useful messages */
-require '../candidatedb.php'; //Note we are using the Interview->candidate table now
+require '../common/db.php'; //Note we are using the Interview->candidate table now
 session_start();
 
 // Processing form data when form is submitted

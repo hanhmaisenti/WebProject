@@ -1,6 +1,6 @@
 <?php 
 /* Reset your password form, sends reset.php password link */
-require 'candidatedb.php';
+require 'common/db.php';
 session_start();
 
 // Check if form submitted with method="post"

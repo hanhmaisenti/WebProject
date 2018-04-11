@@ -9,10 +9,11 @@ if ($_SESSION['logged_in'] != 1) {
     header("location: candidateerror.php");
 } else {
     // Makes it easier to read
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
-    $email = $_SESSION['email'];
+    //$first_name = $_SESSION['first_name'];
+    //$last_name = $_SESSION['last_name'];
+    //$email = $_SESSION['email'];
     $active = $_SESSION['active'];
+    //$questiontype = $_SESSION['questiontype'];
 
     // Processing form data when form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +23,7 @@ if ($_SESSION['logged_in'] != 1) {
       } else {
         //ITS ALL GOOD. ALLOW the Test to Start
         //do all your stuff here
-        echo "<p>Do all your important stuff here!!</p>";
+        header("location: candidatequestions.php");
       }
     }
 }
@@ -37,14 +38,17 @@ if ($_SESSION['logged_in'] != 1) {
 </head>
 <body>
     <h1>Welcome! This is the Hanh Maisenti Interview Candidate Portal</h1>
-    <div><?php
-      // Display any persistent messages only once.
-      if (isset($_SESSION['message'])) {
-        echo $_SESSION['message'];
-        // Don't annoy the user with more messages upon page refresh
-        unset($_SESSION['message']);
-      }
-    ?></div>
+
+    <div class="formfunctions">
+        <?php
+        // Display any persistent messages only once.
+        if (isset($_SESSION['message'])) {
+            echo "<p>".$_SESSION['message']."</p>";
+            // Don't annoy the user with more messages upon page refresh
+            unset($_SESSION['message']);
+        }
+        ?>
+    </div>
     <?php
         // Keep reminding the user this account is not active, until they activate
         if ( !$active ){
@@ -56,20 +60,14 @@ if ($_SESSION['logged_in'] != 1) {
         }
     ?>
 
-    <h1><?php echo "Name:  ".$first_name.'<br>Familyname:  '.$last_name."<br>Email:  ".$email?></h1>
-    <div class="formfunctions">
-        <div>
-            <h1>Hi,
-                <b>
-                    <?php echo htmlspecialchars($_SESSION['email']); ?>
-                </b>. Welcome to the candidate portal</h1>
+    <h1>Hi, <?php echo htmlspecialchars($_SESSION['first_name']); ?>. Welcome to the candidate portal</h1>
+    <form class="formfunctions" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="actions">
+            <input type="submit" name="starttest" value="Start Test">
         </div>
-    </div>
-    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
-        <p>
-            <a href="candidatelogout.php">Sign Out of Your Account</a>
-        </p>
-    </form>
+   </form>
+
+    <div class="footer"><a href="candidatelogout.php">Sign Out of Your Account</a></div>
 </body>
 
 </html>

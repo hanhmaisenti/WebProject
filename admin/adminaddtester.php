@@ -1,7 +1,7 @@
 <?php
 
 /* Displays user information and some useful messages */
-require '../candidatedb.php'; //Note we are using the Interview->candidate table now
+require '../common/db.php'; //Note we are using the Interview->candidate table now
 session_start();
 
 // Processing form data when form is submitted
@@ -159,11 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span><?php echo $lname_err; ?></span> <!--we get the error message displayed after the box if its empty -->
         </div>  
         <div>
-            <label>Please select the type of question</label>
+            <label>Please select the type of question group</label>
             <select name="questiontype">
-                <option value="easy">Easy Question</option>
-                <option value="medium">Medium Question</option>
-                <option value="difficult">Difficult Question</option>
+                <option value="easy">Easy Questions</option>
+                <option value="medium">Medium Questions</option>
+                <option value="difficult">Difficult Questions</option>
             </select>
             <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
         </div>                     

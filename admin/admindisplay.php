@@ -1,7 +1,7 @@
 <?php
 
 /* Displays user information and some useful messages */
-require 'admindb.php';
+require '../common/db.php';
 session_start();
 ?>
 

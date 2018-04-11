@@ -1,7 +1,7 @@
 <?php
 // Include adminconfig file. This effectively takes the code and sticks it here!
 
-require 'candidatedb.php';
+require 'common/db.php';
  session_start();
 ?>
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 
 /* Displays user information and some useful messages */
-require '../candidatedb.php';
+require '../common/db.php';
 session_start();
 ?>
 
@@ -49,6 +49,5 @@ session_start();
                 echo "</tbody>";
             }
         }?>
-	</table>
 </body>
 </html>

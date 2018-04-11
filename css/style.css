@@ -62,7 +62,7 @@
       flex-direction: column;
     }
   
-    h1, .login, .error, .formfunctions, .footer {
+    h1, .login, .error, .formfunctions, .questions, .footer {
       margin: 0;
       width: 80%;
     }
@@ -79,7 +79,7 @@
       body {
         grid-template-columns: repeat(2, minmax(150px, 30%));
       }
-      h1, .login, .error, .formfunctions, .footer {
+      h1, .login, .error, .formfunctions, .questions, .footer {
         grid-column-end: span 2;
         width: auto;
       }
@@ -92,6 +92,11 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         align-items: center;
+      }
+      .questions > div {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: left;
       }
       .formfunctions > div {
         display: grid;
@@ -111,6 +116,9 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
       .formfunctions > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .questions > div.actions {
         grid-template-columns: 1fr 1fr 1fr;
       }
       .footer > div.actions {
@@ -135,7 +143,7 @@
     line-height: 1.4;
   }
   
-  .login, .formfunctions, .error {
+  .login, .formfunctions, .questions, .error {
     background-color: rgba(191, 216, 227, .4);
     border: 1px solid rgba(191, 216, 227, .8);
     border-bottom-right-radius: 5px;
@@ -148,6 +156,9 @@
     padding: 5px 0;
   }
   .formfunctions > div {
+    padding: 5px 0;
+  }
+  .questions {
     padding: 5px 0;
   }
   .error > div {

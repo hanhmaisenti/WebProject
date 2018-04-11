@@ -1,7 +1,7 @@
 <?php
 
 /* Displays user information and some useful messages */
-require '../candidatedb.php';
+require '../common/db.php';
 session_start();
 ?>
 
@@ -45,7 +45,8 @@ session_start();
                 // output data of each row
                 while($user = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $user['id'] . "</td>";
+                    $userid = $user['id'];
+                    echo "<td>" . $userid . "</td>";
                     echo "<td>" . $user['email'] . "</td>";
                     echo "<td>" . $user['first_name'] . "</td>";
                     echo "<td>" . $user['last_name'] . "</td>";
@@ -54,6 +55,21 @@ session_start();
                     echo "<td>" . $user['created_at'] . "</td>";
                     echo "<td>" . $user['active'] . "</td>";
                     echo "</tr>";
+                    $answers = $mysqli->query("SELECT * FROM answers where candidateid='$userid'");
+                    if ( $answers->num_rows == 0 ) { // Nothing exists 
+                    } else {
+                        while($answer = $answers->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td></td>";
+                            $questionid = $answer['questionid'];
+                            $questiontype = $mysqli->query("SELECT questiontype FROM questions where id='$questionid'");
+                            $question = $mysqli->query("SELECT question FROM questions where id='$questionid'");
+                            echo "<td>".$questiontype['questiontype']."</td>";
+                            echo "<td>".$question['question']."</td>";
+                            echo "<td>".$answer['answer']."</td>";
+                            echo "</tr>";
+                        }
+                    }
                 }
                 echo "</table>";
                 echo "</tbody>";

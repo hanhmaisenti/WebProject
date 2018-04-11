@@ -33,15 +33,16 @@ if(empty($email_err) && empty($password_err)){
         if ( password_verify($_POST['password'], $user['password']) ) {
 
             //remember values. It will be used in the next sessions
+            $_SESSION['userid'] = $user['id']; //unique id for this user
             $_SESSION['email'] = $user['email'];
             $_SESSION['first_name'] = $user['first_name'];
             $_SESSION['last_name'] = $user['last_name'];
             $_SESSION['active'] = $user['active'];
+            $_SESSION['questiontype'] = $user['questiontype'];
 
             // This is how we'll know the user is logged in
             $_SESSION['logged_in'] = true;
 
-            //we need to check if the account has actually been activated.
             header("location: candidatefunctions.php");
         }
         else {
