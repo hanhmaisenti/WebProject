@@ -33,10 +33,14 @@ PRIMARY KEY (`id`)
 ```
 ---
 
-THEN, when you have done that, you need to add one admin user into the admin TABLE
+THEN, when you have done that, you need to add one admin user into the admin TABLE to allow administration!
 to do that, you will need to provide a hashed password. There is a tool for this off of the adminindex.html page
 think of a password, and cut and past that directly into phpmyadmin password field, along with the username you choose
 You will need to configure your mysql database first.
+```
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, '<<YOUR EMAIL>>', '<<YOUR HASHED PASSWORD>>'),
+```
 
 # sendmail
 This project also requires setting up of fake **sendmail** on your system
