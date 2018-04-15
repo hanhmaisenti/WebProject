@@ -10,26 +10,56 @@ To create the SQL database structure, simply copy the following text into PHPmyA
 ```
 CREATE DATABASE Interview;
 
-CREATE TABLE `admin`
-(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `email` CHAR(100) NOT NULL,
-    `password` CHAR(100) NOT NULL,
-PRIMARY KEY (`id`) 
-);
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `email` char(100) NOT NULL,
+  `password` char(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `candidate` 
-(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `email` CHAR(100) NOT NULL,
-    `first_name` CHAR(50) NOT NULL,
-    `last_name` CHAR(50) NOT NULL,
-    `password` CHAR(100) NOT NULL,
-    `hash` CHAR(100) NOT NULL,
-    `created_at` TIMESTAMP NOT NULL,
-    `active` BIT NOT NULL DEFAULT 0,
-PRIMARY KEY (`id`) 
-);
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, 'admin@admin.com', '$2y$10$xbDqN0Cln0RtJwwp5lQ3mux.3IWWk2FUJwEH8Z.QqQhyQgyIZKWYi');
+```
+
+The default admin@admin.com administrator user password is password
+
+```
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL,
+  `candidateid` int(11) NOT NULL,
+  `questionid` int(11) NOT NULL,
+  `answer` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `candidate` (
+  `id` int(11) NOT NULL,
+  `email` char(100) NOT NULL,
+  `first_name` char(50) NOT NULL,
+  `last_name` char(50) NOT NULL,
+  `password` char(100) NOT NULL,
+  `hash` char(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `active` bit(1) NOT NULL DEFAULT b'0',
+  `questiontype` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `questiontype` text NOT NULL,
+  `question` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `candidate`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
 ```
 ---
 
