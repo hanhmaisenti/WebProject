@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     while($question = $result->fetch_assoc()) {
                         echo "<div class='form-label-group'>";
 
-                        echo "<input type='text' name='answers[".$question['id']."]' id='answers' class='form-control' placeholder='Answer' autofocus>";
-                        echo "<label for='answers'>"  . $question['question'] .  "</label>";
+                        echo "<input type='text' name='answers[".$question['id']."]' id='answers_".$question['id']."' class='form-control' placeholder='Answer'>";
+                        echo "<label for='answers_".$question['id']."'>"  . $question['question'] .  "</label>";
 
                         echo "</div>";
                     }
