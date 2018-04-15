@@ -7,7 +7,7 @@ session_start();
 <html>
 <head>
 <title>Error</title>
-<?php include '../css/css.html';?>
+<?php include '../common/header.html';?>
 </head>
 <body>
 <div>

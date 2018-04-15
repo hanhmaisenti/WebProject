@@ -9,16 +9,20 @@ session_destroy();
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Error</title>
-  <?php include ('../css/css.html');?>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <?php include '../common/header.html';?>
 </head>
 
 <body>
-<h1>Thanks for stopping by</h1>    
-<div class="formfunctions">
-    <p><?= 'You have been logged out!'; ?></p>
-    <a href="index.php">Home</button></a>
-</div>
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Thanks for Stopping by</h1>
+            <h4>You have been logged out</h4>
+        </div>    
+        <div>
+            <a href="index.php">Home</button></a>
+        </div>
+    </div>
 </body>
 </html>

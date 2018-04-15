@@ -31,29 +31,33 @@ else {
 <head>
     <meta charset="UTF-8">
     <title>Reset Your Password</title>
-    <?php include 'css/css.html'; ?>
+    <?php include 'common/header.html';?>
+    
+    <!-- Custom styles for this template -->
+    <link href="css/floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Choose Your New Password</h1>
-    <div class="login">
-        <form action="candidateresetpassword.php" method="post">
-            <div>
-                <label>New Password<span>*</span></label>
-                <input type="password" required name="newpassword" autocomplete="off" />
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Choose your new Password</h1>
+        </div>    
+        <!--this posts back to itself at correct server location -->
+        <form class="form-signin" action="candidateresetpassword.php" method="post">  
+            <div class="form-label-group">
+                <input type="password" name="newpassword" id="NewPassword" class="form-control" placeholder="Password" required>
+                <label for="NewPassword">New Password</label>
             </div>
-
-            <div>
-                <label>Confirm New Password<span>*</span></label>
-                <input type="password" required name="confirmpassword" autocomplete="off" />
+            <div class="form-label-group">
+                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Password" required>
+                <label for="confirmpassword">Confirm New Password</label>
             </div>
 
             <!-- This input field is needed, to get the email of the user -->
             <input type="hidden" name="email" value="<?= $email ?>">
             <input type="hidden" name="hash" value="<?= $hash ?>">
-            <div class="actions">
-              <input type="submit" name="apply" value="Apply"></input>
-            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="apply">Apply</button>
         </form>
     </div>
 </body>

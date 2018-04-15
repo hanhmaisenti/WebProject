@@ -74,42 +74,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
 	<title>Add Admin</title>
-    <?php include '../css/css.html';?>
+    <?php include '../common/header.html';?>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/custom.css" rel="stylesheet">
 </head>
+
 <body>
-	<h1>Add Admin - To Database name:<?php echo DB_NAME; ?></h1>
-
-    <?php
-    // Check if user is logged in using the session variable
-    if ( $_SESSION['logged_in'] != 1 ) {
-        $_SESSION['message'] = "You must log in before using this tool!";
-        header("location: adminerror.php");    
-    }
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    }?>    
-
-    <h1>Add Admin</h1>
-    <!--this posts back to itself at correct server location -->
-    <form class="login" action="adminadd.php" method="post">
-        <div>
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email; ?>">
-            <span><?php echo $email_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>    
-        <div>
-            <label>Password</label>
-            <input type="password" name="password" class="form-control">
-            <span><?php echo $password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Add Admin - To Database name:<?php echo DB_NAME; ?></h1>
         </div>
         <div>
-            <label>Confirm Password</label>
-            <input type="password" name="confirm_password" value="<?php echo $confirm_password; ?>">
-            <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>            
-        <div class="actions"><input type="submit" value="Submit"></div>
-    </form>
-    <div class="footer"><a href="adminfunctions.php">Go Back</a></div>
+            <?php
+            // Check if user is logged in using the session variable
+            if ( $_SESSION['logged_in'] != 1 )
+            {
+                $_SESSION['message'] = "You must log in before using this tool!";
+                header("location: adminerror.php");    
+            }
+            ?>    
+        </div>
+        <!--this posts back to itself at correct server location -->
+        <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+            <div class="form-label-group">
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+                <span><?php echo $email_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+                <span><?php echo $password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" name="confirm_password" id="confirmPassword" class="form-control" placeholder="Password" required>
+                <label for="confirmPassword">Confirm Password</label>
+                <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Submit</button>
+        </form>
+        <p><a href="adminfunctions.php">Go Back</a></p>
+    </div>
 </body>
 </body>
 </html>

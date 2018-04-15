@@ -8,7 +8,7 @@ session_start();
 <html lang="en">
 <head>
     <title>HASH Generator</title>
-    <?php include ('../css/css.html'); ?>
+    <?php include '../common/header.html';?>
 </head>
 
 <?php
@@ -25,22 +25,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <body>
-    <h1>Hash Generator<br>Please enter the password you want to hash</h1>
 
-    <form class="login" method="post">
-        <div>
-            <label>Password</label>
-            <input type="text" name="password">
-        </div>
-        <div class="actions">
-            <input type="submit" name="hashsubmit" value="Submit">
-        </div>
-        <div>
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Hash Generator<br>Please enter the password you want to hash</h1>
+        </div>    
+    
+        <form class="form-signin" method="post">  
+            <div class="form-label-group">
+                <input type="text" name="password" id="password" class="form-control" placeholder="Password" required autofocus>
+                <label for="password">Password</label>
+            </div>
+
+            <div>
+                <button class="btn btn-lg btn-primary" type="submit" name="hashsubmit">Submit</button>
+            </div>
+        </form>
+        <div class="container">      
+            <textarea id='myText' rows="10" class="form-control" style="min-width: 100%"><?php echo $y; ?></textarea>
             <label>Results</label>
-            <textarea id='myText' rows="10"><?php echo $y; ?></textarea>
         </div>
-    </form>
-    <a href="./index.php">Go Back</a>
+        <div>
+            <p><a href="../index.php">Go Back</a></p>
+        </div>
+    </div>
 </body>
 </html>
 

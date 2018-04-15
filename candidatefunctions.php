@@ -34,40 +34,41 @@ if ($_SESSION['logged_in'] != 1) {
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-    <?php include 'css/css.html';?>
+    <?php include 'common/header.html';?>
 </head>
 <body>
-    <h1>Welcome! This is the Hanh Maisenti Interview Candidate Portal</h1>
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Welcome! This is the Hanh Maisenti Interview Candidate Portal</h1>
+            <div>
+                <?php
+                // Display any persistent messages only once.
+                if (isset($_SESSION['message'])) {
+                    echo "<p>".$_SESSION['message']."</p>";
+                    // Don't annoy the user with more messages upon page refresh
+                    unset($_SESSION['message']);
+                }
+                ?>
+            </div>
+            <div>
+                <?php
+                // Keep reminding the user this account is not active, until they activate
+                if ( !$active ){
+                    echo
+                    '<div">
+                    Account is unverified, please confirm your email by clicking
+                    on the email link!
+                    </div>';
+                } ?>
+            </div>
+        </div>    
 
-    <div class="formfunctions">
-        <?php
-        // Display any persistent messages only once.
-        if (isset($_SESSION['message'])) {
-            echo "<p>".$_SESSION['message']."</p>";
-            // Don't annoy the user with more messages upon page refresh
-            unset($_SESSION['message']);
-        }
-        ?>
-    </div>
-    <?php
-        // Keep reminding the user this account is not active, until they activate
-        if ( !$active ){
-            echo
-            '<div class="formfunctions">
-            Account is unverified, please confirm your email by clicking
-            on the email link!
-            </div>';
-        }
-    ?>
-
-    <h1>Hi, <?php echo htmlspecialchars($_SESSION['first_name']); ?>. Welcome to the candidate portal</h1>
-    <form class="formfunctions" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="actions">
-            <input type="submit" name="starttest" value="Start Test">
+        <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="starttest">Start Test</button>
+        </form>
+        <div>
+            <a href="candidatelogout.php">Sign Out of Your Account</a>
         </div>
-   </form>
-
-    <div class="footer"><a href="candidatelogout.php">Sign Out of Your Account</a></div>
+    </div>
 </body>
-
 </html>

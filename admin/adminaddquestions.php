@@ -48,41 +48,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
 	<title>Add Question</title>
-    <?php include '../css/css.html';?>
+    <?php include '../common/header.html';?>
 </head>
 <body>
-	<h1>Add Question - To Database name:<?php echo DB_NAME; ?></h1>
-
-    <?php
-    // Check if user is logged in using the session variable
-    if ( $_SESSION['logged_in'] != 1 ) {
-        $_SESSION['message'] = "You must log in before using this tool!";
-        header("location: adminerror.php");    
-    }
-    ?>    
-
-    <h1>Add Question</h1>
-    <!--this posts back to itself at correct server location -->
-    <form class="login" action="adminaddquestions.php" method="post">
-        <div>
-            <label>Please select the type of question</label>
-            <select name="questiontype">
-                <option value="easy">Easy Question</option>
-                <option value="medium">Medium Question</option>
-                <option value="difficult">Difficult Question</option>
-            </select>
-            <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div> 
-        <div>
-            <label>Question</label>
-            <input type="text" name="question" value="<?php echo $question; ?>">
-            <span><?php echo $question_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>   
-        <div class="actions">
-            <input type="submit" value="Submit">
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Add Question - To Database name:<?php echo DB_NAME; ?></h1>
         </div>
-        <p><a href="adminfunctions.php">Go Back</a></p>
-    </form>
-</body>
+        <div>
+            <?php
+            // Check if user is logged in using the session variable
+            if ( $_SESSION['logged_in'] != 1 )
+            {
+                $_SESSION['message'] = "You must log in before using this tool!";
+                header("location: adminerror.php");    
+            }
+            ?>    
+        </div>
+        <!--this posts back to itself at correct server location -->
+        <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+            <!--QUESTION TYPE-->
+            <div class="form-label-group">
+                <select class="selectpicker form-control" name="questiontype" id="questiontype" data-style="btn-info">
+                    <option value="easy">Easy Question</option>
+                    <option value="medium">Medium Question</option>
+                    <option value="difficult">Difficult Question</option>
+                </select>
+                <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>    
+
+            <!--QUESTION-->
+            <div class="form-label-group">
+                <input type="text" name="question" id="question" class="form-control" placeholder="Question" required>
+                <label for="question">Question</label>
+                <span><?php echo $question_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Submit</button>
+            <p><a href="adminfunctions.php">Go Back</a></p>
+        </form>
+    </div>
 </body>
 </html>

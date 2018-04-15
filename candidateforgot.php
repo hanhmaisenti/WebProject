@@ -49,21 +49,28 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 <html>
 <head>
   <title>Reset Your Password</title>
-  <?php include 'css/css.html'; ?>
+  <?php include 'common/header.html';?>
+
+  <!-- Custom styles for this template -->
+  <link href="css/custom.css" rel="stylesheet">
 </head>
 
 <body>
-    
-  <h1>Reset Your Password</h1>
-  <form class="login" action="candidateforgot.php" method="post">
-    <div>
-      <label>Email Address<span>*</span></label>
-      <input type="email" required autocomplete="off" name="email"/>
-    </div>
-    <div class="actions">
-      <input type="submit" name="reset" value="Reset Password"></input>
-    </div>
-  </form>
-</body>
+  <div class="container">   
+      <div class="jumbotron">
+          <h1>Reset your Password</h1>
+      </div>    
+      <!--this posts back to itself at correct server location -->
+      <form class="form-signin" action="candidateforgot.php" method="post">  
 
+          <div class="form-label-group">
+              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              <label for="inputEmail">Email address</label>
+              <span><?php echo $email_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+          </div>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit" name="reset">Reset Password</button>
+      </form>
+  </div>
+</body>
 </html>

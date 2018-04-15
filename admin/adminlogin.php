@@ -33,7 +33,7 @@ if(empty($email_err) && empty($password_err)){
 
         if ( password_verify($_POST['password'], $user['password']) ) {
 
-            //remember is value. It will be used in the next sessions
+            //remember this value. It will be used in the next sessions
             $_SESSION['email'] = $user['email'];
 
             // This is how we'll know the user is logged in

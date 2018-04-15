@@ -127,61 +127,78 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
 	<title>Add Candidate</title>
-    <?php include '../css/css.html';?>
+    <?php include '../common/header.html';?>
+    
+    <!-- Custom styles for this template -->
+    <link href="../css/custom.css" rel="stylesheet">    
 </head>
+
 <body>
-	<h1>Add Candidate - To Database name:<?php echo DB_NAME; ?></h1>
-
-    <?php
-    // Check if user is logged in using the session variable
-    if ( $_SESSION['logged_in'] != 1 ) {
-        $_SESSION['message'] = "You must log in before using this tool!";
-        header("location: adminerror.php");    
-    }
-    ?>    
-
-    <h1>Add Admin</h1>
-    <!--this posts back to itself at correct server location -->
-    <form class="login" action="adminaddtester.php" method="post">
-        <div>
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email; ?>">
-            <span><?php echo $email_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div> 
-        <div>
-            <label>First Name</label>
-            <input type="text" name="fname" value="<?php echo $fname; ?>">
-            <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>   
-        <div>
-            <label>Last Name</label>
-            <input type="text" name="lname" value="<?php echo $lname; ?>">
-            <span><?php echo $lname_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>  
-        <div>
-            <label>Please select the type of question group</label>
-            <select name="questiontype">
-                <option value="easy">Easy Questions</option>
-                <option value="medium">Medium Questions</option>
-                <option value="difficult">Difficult Questions</option>
-            </select>
-            <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>                     
-        <div>
-            <label>Password</label>
-            <input type="password" name="password" value="<?php echo $password; ?>">
-            <span><?php echo $password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+    <div class="container">   
+        <div class="jumbotron">
+            <h1>Add Candidate - To Database name:<?php echo DB_NAME; ?></h1>
         </div>
         <div>
-            <label>Confirm Password</label>
-            <input type="password" name="confirm_password" value="<?php echo $confirm_password; ?>">
-            <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
-        </div>            
-        <div class="actions">
-            <input type="submit" value="Submit">
+            <?php
+            // Check if user is logged in using the session variable
+            if ( $_SESSION['logged_in'] != 1 )
+            {
+                $_SESSION['message'] = "You must log in before using this tool!";
+                header("location: adminerror.php");    
+            }
+            ?>    
         </div>
-        <p><a href="adminfunctions.php">Go Back</a></p>
-    </form>
-</body>
+        <!--this posts back to itself at correct server location -->
+        <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+            <!--EMAIL ADDRESS-->
+            <div class="form-label-group">
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+                <span><?php echo $email_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <!--FIRST NAME-->
+            <div class="form-label-group">
+                <input type="text" name="fname" id="firstname" class="form-control" placeholder="First Name" required>
+                <label for="firstname">First Name</label>
+                <span><?php echo $fname_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <!--LAST NAME-->
+            <div class="form-label-group">
+                <input type="text" name="lname" id="lastname" class="form-control" placeholder="Last Name" required>
+                <label for="lastname">Last Name</label>
+                <span><?php echo $lname_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <!--QUESTION TYPE-->
+            <div class="form-label-group">
+
+                <select class="selectpicker form-control" name="questiontype" id="questiontype" data-style="btn-info">
+                    <option value="easy">Easy Questions</option>
+                    <option value="medium">Medium Questions</option>
+                    <option value="difficult">Difficult Questions</option>
+                </select>
+                <!--label for="questiontype">Please select the type of question group</label-->
+                <span><?php echo $qgroup_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>                        
+
+            <!--PASSWORD-->
+            <div class="form-label-group">
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+                <span><?php echo $password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <!--CONFIRM PASSWORD-->
+            <div class="form-label-group">
+                <input type="password" name="confirm_password" id="ConfirmPassword" class="form-control" placeholder="Password" required>
+                <label for="ConfirmPassword">Confirm Password</label>
+                <span><?php echo $confirm_password_err; ?></span> <!--we get the error message displayed after the box if its empty -->
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
