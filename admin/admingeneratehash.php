@@ -13,9 +13,11 @@ session_start();
 
 <?php
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
     //print_r($_POST); die;
-    if (isset($_POST['hashsubmit'])) { //
+    if (isset($_POST['hashsubmit']))
+    { //
         // Check if password is empty
         $password = trim($_POST['password']);
         $HashedPassword = password_hash($password, PASSWORD_BCRYPT);

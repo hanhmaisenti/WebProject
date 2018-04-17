@@ -4,10 +4,13 @@
 session_start();
 
 // Check if user is logged in using the session variable (variable set from the login page)
-if ($_SESSION['logged_in'] != 1) {
+if ($_SESSION['logged_in'] != 1)
+{
     $_SESSION['message'] = "You must log in before viewing your profile page!";
     header("location: adminerror.php");
-} else {
+}
+else
+{
     // Makes it easier to read
     $email = $_SESSION['email'];
 
@@ -16,19 +19,24 @@ if ($_SESSION['logged_in'] != 1) {
         if (isset($_POST['showadmins']))
         {
             header("location: admindisplay.php");
-        } else if (isset($_POST["addadmin"]))
+        }
+        else if (isset($_POST["addadmin"]))
         {
             header("location: adminadd.php");
-        } else if (isset($_POST["addtesters"]))
+        }
+        else if (isset($_POST["addtesters"]))
         {
             header("location: adminaddtester.php");
-        } else if (isset($_POST["readtesters"]))
+        }
+        else if (isset($_POST["readtesters"]))
         {
             header("location: admindisplaytesters.php");
-        } else if (isset($_POST["viewquestions"]))
+        }
+        else if (isset($_POST["viewquestions"]))
         {
             header("location: adminviewquestions.php");
-        } else if (isset($_POST["addquestions"]))
+        }
+        else if (isset($_POST["addquestions"]))
         {
             header("location: adminaddquestions.php");
         }

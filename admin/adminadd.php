@@ -5,31 +5,39 @@ require '../common/db.php';
 session_start();
 
 // Processing form data when form is submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{ 
     // Define variables and initialize with empty values
     $email = $password = $confirm_password ="";
     $email_err = $password_err = $confirm_password_err = "";
 
     // Check if email is empty
-    if(empty(trim($_POST["email"]))){
+    if(empty(trim($_POST["email"])))
+    {
         //this displays directly into the HTML
         $email_err = 'Please enter email.';
-    } else {
-
+    } 
+    else 
+    {
         //attempt to discover if the email address is already taken
         //must protect against sql injection
         $email = $mysqli->escape_string($_POST['email']); 
         $result = $mysqli->query("SELECT * FROM admin WHERE email='$email'") or die($mysqli->error());
         
-        if ( $result->num_rows == 0 ) {
+        if ( $result->num_rows == 0 )
+        {
             //this is good. Email address not take
 
             // Validate password
-            if(empty(trim($_POST['password']))){
+            if(empty(trim($_POST['password'])))
+            {
                 $password_err = "Please enter a password.";     
-            } elseif(strlen(trim($_POST['password'])) < 6){
+            } elseif(strlen(trim($_POST['password'])) < 6)
+            {
                 $password_err = "Password must have at least 6 characters.";
-            } else {
+            } 
+            else
+            {
                 $password = trim($_POST['password']); //Valid Password
             }
 

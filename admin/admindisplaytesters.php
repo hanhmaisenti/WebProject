@@ -46,7 +46,6 @@ session_start();
             }
             else
             {
-
                 // Users exists (num_rows != 0)
                 // output data of each row
                 while($user = $result->fetch_assoc())
